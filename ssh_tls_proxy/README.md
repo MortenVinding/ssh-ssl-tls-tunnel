@@ -6,6 +6,9 @@ is used to wrap the ssh connection in TLS, and on the server side,
 stunnel(1) is used to terminate TLS and forward the resulting connection
 to the local sshd.
 
+(Forked from https://github.com/slingamn/inconveniences/tree/master/system/ssh_tls_proxy
+and modified to use OpenSSL instead for the go program and stunnel).
+
 Server-side configuration:
 
 1. You need a stunnel instance that listens on port 443, then terminates TLS
