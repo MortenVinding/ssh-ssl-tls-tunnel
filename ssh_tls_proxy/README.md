@@ -22,22 +22,14 @@ on 443 directly, then run it as root.
 
 Client-side configuration:
 
-1. If necessary, install the [Go programming language](https://golang.org/dl/)
-2. Compile the proxy command with `go build proxycommand.go`
-3. Install it in your home directory on the client machine,
-e.g., `mv proxycommand ~/bin/proxycommand_ssh_in_tls`
-4. Add the following block to ~/.ssh/config:
+1. Add the following block to ~/.ssh/config:
 
 ```
 Host my-host.domain
-    ProxyCommand ~/bin/proxycommand_ssh_in_tls %h:443
+    ProxyCommand openssl s_client -connect %h:443 -ign_eof
 ```
 
-If you don't have have a valid TLS certificate for the server, add `insecure`
-to the command (this is probably OK because you can rely on the known_hosts
-file to authenticate the actual sshd):
+If you don't have have a valid TLS certificate for the server, OpenSSL will
+complain but still connect (this is probably OK because you can rely on
+the known_hosts file to authenticate the actual sshd):
 
-```
-Host my-host.domain
-    ProxyCommand ~/bin/proxycommand_ssh_in_tls %h:443 insecure
-```
