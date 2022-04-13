@@ -30,6 +30,7 @@ Host my-host.domain
 ```
 
 If you don't have have a valid TLS certificate for the server, OpenSSL will
-complain but still connect (this is probably OK because you can rely on
-the known_hosts file to authenticate the actual sshd):
+still connect.
+This is probably OK because you can rely on the known_hosts file to
+authenticate the actual sshd.
 
