@@ -9,9 +9,11 @@ to the local sshd.
 (Forked from https://github.com/slingamn/inconveniences/tree/master/system/ssh_tls_proxy
 and modified to use OpenSSL instead for the go program and stunnel).
 
+*********************************************************************************
 Even smarter solution, not requering stunnel but using ALPN proxy rules in nginx,
 even allowing normal https on the same port!
 https://superuser.com/a/1328474
+*********************************************************************************
 
 Server-side configuration:
 
